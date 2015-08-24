@@ -28,6 +28,11 @@ class LinkHelpersPlugin extends BasePlugin
         return false;
     }
 
+    public function init()
+    {
+      require CRAFT_PLUGINS_PATH . '/linkhelpers/vendor/autoload.php';
+    }
+
     public function addTwigExtension()
     {
         Craft::import('plugins.linkhelpers.twigextensions.LinkHelpersTwigExtension');

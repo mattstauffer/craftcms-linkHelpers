@@ -33,7 +33,7 @@ class LinkHelpersTwigExtension extends \Twig_Extension
 		return array(
 			'auto_link_urls' => new Twig_Filter_Method($this, 'justUrls'),
 			'auto_link_emails' => new Twig_Filter_Method($this, 'justEmails'),
-			// 'auto_link' => new Twig_Filter_Method($this, 'urlsAndEmails'),
+			'auto_link' => new Twig_Filter_Method($this, 'urlsAndEmails'),
 		);
 	}
 
@@ -114,9 +114,8 @@ class LinkHelpersTwigExtension extends \Twig_Extension
 	 */
 	public function urlsAndEmails($str)
 	{
-		throw new Exception('Haven\'t figured this one out yet.');
-
-		$str = $this->pregEmails($this->pregUrls($str));
+        $urlLinker = new \Kwi\UrlLinker();
+		$str = $urlLinker->linkUrlsInTrustedHtml($str);
 
 		return $this->returnString($str);
 	}
