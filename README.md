@@ -20,7 +20,7 @@ Or:
 ```twig
 {% filter auto_link_emails %}
     <p>Content here with an email address like email@email.com.</p>
-{% endfilter}
+{% endfilter %}
 ```
 
 Outputs:
@@ -38,7 +38,7 @@ Or:
 ```twig
 {% filter auto_link_emails %}
     <p>Content here with a URL like http://www.site.com/</p>
-{% endfilter}
+{% endfilter %}
 ```
 
 Outputs:
